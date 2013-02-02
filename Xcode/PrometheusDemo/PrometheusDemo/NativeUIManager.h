@@ -6,6 +6,7 @@
 @interface NativeUIManager : NSObject
 
 @property (nonatomic, retain) UINavigationController *navigationController;
+@property (nonatomic, retain) NSMutableArray *addedSubviews;
 
 @property (nonatomic, assign) BOOL pauseOnShowUI;
 @property (nonatomic, assign) BOOL viewWasAnimated;
@@ -17,8 +18,13 @@
 - (void)showStoryboard:(NSString*)name;
 - (void)showStoryboard:(NSString*)name withAnimation:(UIModalTransitionStyle)animation;
 
+// Shows a XIB
+-(void)showViewControllerFromXib:(NSString*)xib withAnimation:(UIModalTransitionStyle)animation;
+-(void)showViewControllerFromXib:(NSString*)xib withFrame:(CGRect)frame;
+
 // Hides the native UI and returns control to Unity
-- (void)hideUI;
+-(void)hideUI;
+-(void)hideSubviews;
 
 // Toggles pausing the Unity VM
 - (void)pauseUnity:(BOOL)shouldPause;

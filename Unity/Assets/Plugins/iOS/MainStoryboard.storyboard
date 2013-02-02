@@ -28,15 +28,16 @@
                                     <action selector="hideView:" destination="2" eventType="touchUpInside" id="ifJ-U7-4eY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cq3-dy-VC5">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="81" id="P6S-k7-5Be"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Show XIB popover" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cq3-dy-VC5">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgZ-nL-7Mw"/>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hgZ-nL-7Mw">
+                                <connections>
+                                    <action selector="popupSwitchToggled:" destination="2" eventType="valueChanged" id="8CH-YO-Ms7"/>
+                                </connections>
+                            </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="uncertain.png" translatesAutoresizingMaskIntoConstraints="NO" id="xWM-ts-kle">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="92N-5c-PPu"/>
@@ -135,6 +136,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NUIViewController.h"/>
             <relationships>
                 <relationship kind="action" name="hideView:" candidateClass="UIButton"/>
+                <relationship kind="action" name="popupSwitchToggled:" candidateClass="UISwitch"/>
             </relationships>
         </class>
     </classes>

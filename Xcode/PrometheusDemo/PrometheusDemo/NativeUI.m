@@ -10,10 +10,25 @@ void _showStoryboard( const char *view, int animation) {
     
 }
 
+void _showViewControllerFromXibWithAnimation (const char *xib, int animation) {
+    NSString *xibName = [NSString stringWithUTF8String:xib];
+    
+    [[NativeUIManager sharedManager] showViewControllerFromXib:xibName
+                                                 withAnimation:animation];
+}
+
+void _showViewControllerFromXibWithFrame( const char *xib, float x, float y, float width, float height ) {
+    
+    NSString *xibName = [NSString stringWithUTF8String:xib];
+    
+    [[NativeUIManager sharedManager] showViewControllerFromXib:xibName
+                                                     withFrame:CGRectMake(x, y, width, height)];
+}
 
 void _hideUI() {
 	[[NativeUIManager sharedManager] hideUI];
 }
+
 
 void _setPauseUnity(bool pause) {
     [NativeUIManager sharedManager].pauseOnShowUI = pause;

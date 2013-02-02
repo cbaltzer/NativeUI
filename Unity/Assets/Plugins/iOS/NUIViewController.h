@@ -11,5 +11,6 @@
 @interface NUIViewController : UIViewController
 
 -(IBAction)hideView:(UIButton*)sender;
+- (IBAction)popupSwitchToggled:(UISwitch *)sender;
 
 @end

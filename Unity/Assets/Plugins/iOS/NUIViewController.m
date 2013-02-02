@@ -32,4 +32,16 @@
     [[NativeUIManager sharedManager] hideUI];
 }
 
+- (IBAction)popupSwitchToggled:(UISwitch *)sender {
+    if (sender.on) {
+        [[NativeUIManager sharedManager] showViewControllerFromXib:@"NUIPopoverViewController"
+                                                         withFrame:CGRectMake(0, 380, 320, 140)];
+        
+    } else {
+        
+        [[NativeUIManager sharedManager] hideSubviews];
+        
+    }
+}
+
 @end

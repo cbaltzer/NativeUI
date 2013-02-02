@@ -24,12 +24,13 @@ void UnityPause( bool pause );
 	{
         self.pauseOnShowUI = YES;
 		self.viewWasAnimated = NO;
+        self.addedSubviews = [NSMutableArray arrayWithCapacity:2]; //initially 2
 	}
 	return self;
 }
 
 
-#pragma mark Storyboarding
+#pragma mark - Presenting Storyboard
 
 - (void)showStoryboard:(NSString*)name {
     [self showStoryboard:name withAnimation:(UIModalTransitionStyle)-1];
@@ -67,14 +68,53 @@ void UnityPause( bool pause );
     NSLog(@"Presented Storyboard: %@", name);
 }
 
+
+#pragma mark - Presenting XIB
+
+-(void)showViewControllerFromXib:(NSString *)xib withAnimation:(UIModalTransitionStyle)animation{
+    
+    UIViewController *vc = [[NSClassFromString(xib) alloc] initWithNibName:xib bundle:nil];
+    NSLog(@"Presenting %@ from Xib", [vc class]);
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    
+    self.viewWasAnimated = NO;
+    if (animation >= 0) {
+        self.viewWasAnimated = YES;
+        vc.modalTransitionStyle = animation;
+    }
+    
+    if (self.pauseOnShowUI)
+        [self pauseUnity:YES];
+    
+    [window.rootViewController presentViewController:vc animated:YES completion:nil];
+}
+
+-(void)showViewControllerFromXib:(NSString*)xib withFrame:(CGRect)frame {
+    UIViewController *vc = [[NSClassFromString(xib) alloc] initWithNibName:xib bundle:nil];
+    NSLog(@"Presenting %@ from Xib", [vc class]);
+    
+    vc.view.frame = frame;
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    
+    [self.addedSubviews addObject:vc.view];
+    [window.rootViewController.view addSubview:vc.view];
+}
+
+
+#pragma mark - Hiding
+
 - (void)hideUI {
-    NSLog(@"Hiding view, showing Unity");
+    NSLog(@"Hiding view, showing Unity");    
     #if TARGET_IPHONE_SIMULATOR
         // This return doesn't seem to be necessary, but might as well just in case
         return;
     #endif
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
+
+    // remove subviews first
+    [self hideSubviews];
     
     if (self.viewWasAnimated) {
         [window.rootViewController dismissViewControllerAnimated:YES completion:nil];
@@ -90,8 +130,14 @@ void UnityPause( bool pause );
 	_navigationController = nil;
 }
 
+-(void)hideSubviews {
+    for (UIView *subview in self.addedSubviews) {
+        [subview removeFromSuperview];
+    }
+    [self.addedSubviews removeAllObjects];
+}
 
-#pragma mark Unity Control
+#pragma mark - Unity Control
 
 - (void)pauseUnity:(BOOL)shouldPause {
     #ifdef UNITY_PRE_IOS6_SDK

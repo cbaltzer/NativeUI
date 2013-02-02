@@ -48,22 +48,30 @@ Sets whether the Unity player should pause when a native UI is shown or not.
 Loads a Storyboard UI with no animation. 
 
 
-### showStoryboard( string view, NativeTransitionAnimation transition) 
+### showStoryboard( string view, NativeTransitionAnimation transition ) 
 
 Loads a Storyboard with the animation defined by transition. 
 
 
+### showViewControllerFromXibWithAnimation( string xib, NativeTransitionAnimation transition ) 
+
+Loads a view controller from a XIB, and presents it as a modal view controller with an 
+optional animation. 
+
+Note: The view controller must be the same name as the XIB.
+
+
+### showViewControllerFromXibWithFrame( string xib, Rect frame )
+
+Loads a view controller from a XIB and presents in the specified frame, on top of Unity. 
+
+Note: The view is not animated, and the Unity VM is not paused. The view controller must be the 
+same name as the XIB. 
+
+
 ### hideUI()
 
-Hides any native UI and resumes the Unity Player. If the Storyboard is animated in, it will be animated out appropriately.
-
-
-Deprecated (To be re-written)
------------------------------
-
-### showXib( string view )
-
-Loads a UI from a xib.
+Hides any native UI and resumes the Unity Player. If the view controller is animated in, it will be animated out appropriately. 
 
 
 
