@@ -46,7 +46,7 @@ Documentation
 NativeUIManager.mm
 ------------------
 
-### -(void)sendMessageToGameObject:(NSString*)gameObject withMethod:(NSString*)method andMessage:(NSString*)message
+### -sendMessageToGameObject:(NSString*) withMethod:(NSString*) andMessage:(NSString*)
 
 Wraps the [UnitySendMessage](http://docs.unity3d.com/Documentation/Manual/PluginsForIOS.html) function, for use in 
 native apps. This allows testing without the Unity libraries in your project, and testing in the simulator. 
