@@ -26,8 +26,13 @@
 -(void)hideUI;
 -(void)hideSubviews;
 
+
+// Wrapper for UnitySendMessage
+-(void)sendMessageToGameObject:(NSString*)gameObject withMethod:(NSString*)method andMessage:(NSString*)message;
+
 // Toggles pausing the Unity VM
 - (void)pauseUnity:(BOOL)shouldPause;
 
 
 @end
+

@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		Debug.Log ("NotPaused: " + Time.time);
 	}
 	
 	
@@ -55,4 +55,11 @@ public class MainMenu : MonoBehaviour {
 			NativeUI.hideUI();
 		}
 	}
+	
+	public void Load(string level) {
+		Debug.Log ("Loading Level: " + level);
+		Application.LoadLevelAdditive(level);
+	}
+	
+	
 }

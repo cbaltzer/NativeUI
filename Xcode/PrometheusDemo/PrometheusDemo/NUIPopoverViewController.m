@@ -39,4 +39,10 @@
 - (IBAction)hideButtonPressed:(UIButton *)sender {
     [[NativeUIManager sharedManager] hideSubviews];
 }
+
+- (IBAction)loadButtonPressed:(UIButton *)sender {
+    [[NativeUIManager sharedManager] sendMessageToGameObject:@"MainMenu"
+                                                  withMethod:@"Load"
+                                                  andMessage:@"RedParticles"];
+}
 @end

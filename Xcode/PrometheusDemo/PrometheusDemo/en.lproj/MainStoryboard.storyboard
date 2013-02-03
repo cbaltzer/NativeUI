@@ -128,18 +128,6 @@
     <resources>
         <image name="uncertain.png" width="250" height="181"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NUIViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NUIViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="hideView:" candidateClass="UIButton"/>
-                <relationship kind="action" name="popupSwitchToggled:" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

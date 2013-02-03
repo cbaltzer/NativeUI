@@ -34,6 +34,15 @@ subfolders are not supported Unity build process.
 Documentation
 =============
 
+NativeUIManager.mm
+------------------
+
+### -(void)sendMessageToGameObject:(NSString*)gameObject withMethod:(NSString*)method andMessage:(NSString*)message
+
+Wraps the UnitySendMessage function, for use in native apps. This allows testing without the Unity libraries in 
+your project, and testing in the simulator. 
+
+
 
 NativeUI.cs
 -----------
@@ -63,7 +72,8 @@ Note: The view controller must be the same name as the XIB.
 
 ### showViewControllerFromXibWithFrame( string xib, Rect frame )
 
-Loads a view controller from a XIB and presents in the specified frame, on top of Unity. 
+Loads a view controller from a XIB and presents in the specified frame, on top of Unity. The frame 
+parameter generates a CGRect which internally does pixel doubling for Retina displays. 
 
 Note: The view is not animated, and the Unity VM is not paused. The view controller must be the 
 same name as the XIB. 

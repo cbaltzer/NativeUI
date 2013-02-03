@@ -10,5 +10,6 @@
 
 @interface NUIPopoverViewController : UIViewController
 - (IBAction)hideButtonPressed:(UIButton *)sender;
+- (IBAction)loadButtonPressed:(UIButton *)sender;
 
 @end

@@ -1,15 +1,15 @@
 
 #import "NativeUIManager.h"
 
-// defined by the Unity VM
-#ifdef UNITY_PRE_IOS6_SDK
-void UnityPause( bool pause );
-#endif
+
+extern void UnityPause( bool pause );
+extern void UnitySendMessage(const char *, const char *, const char *);
+
 
 @implementation NativeUIManager
 
 
-+ (NativeUIManager*)sharedManager {
++(NativeUIManager*)sharedManager {
 	static NativeUIManager *sharedManager = nil;
 	
 	if( !sharedManager )
@@ -18,8 +18,7 @@ void UnityPause( bool pause );
 	return sharedManager;
 }
 
-
-- (id)init {
+-(id)init {
 	if( ( self = [super init] ) )
 	{
         self.pauseOnShowUI = YES;
@@ -30,14 +29,15 @@ void UnityPause( bool pause );
 }
 
 
+
 #pragma mark - Presenting Storyboard
 
-- (void)showStoryboard:(NSString*)name {
+-(void)showStoryboard:(NSString*)name {
     [self showStoryboard:name withAnimation:(UIModalTransitionStyle)-1];
     
 }
 
-- (void) showStoryboard:(NSString*)name withAnimation:(UIModalTransitionStyle)animation {
+-(void) showStoryboard:(NSString*)name withAnimation:(UIModalTransitionStyle)animation {
     // Pause Unity
     if (self.pauseOnShowUI) {
         [self pauseUnity:YES];
@@ -69,6 +69,7 @@ void UnityPause( bool pause );
 }
 
 
+
 #pragma mark - Presenting XIB
 
 -(void)showViewControllerFromXib:(NSString *)xib withAnimation:(UIModalTransitionStyle)animation{
@@ -83,8 +84,9 @@ void UnityPause( bool pause );
         vc.modalTransitionStyle = animation;
     }
     
-    if (self.pauseOnShowUI)
+    if (self.pauseOnShowUI) {
         [self pauseUnity:YES];
+    }
     
     [window.rootViewController presentViewController:vc animated:YES completion:nil];
 }
@@ -102,9 +104,10 @@ void UnityPause( bool pause );
 }
 
 
+
 #pragma mark - Hiding
 
-- (void)hideUI {
+-(void)hideUI {
     NSLog(@"Hiding view, showing Unity");    
     #if TARGET_IPHONE_SIMULATOR
         // This return doesn't seem to be necessary, but might as well just in case
@@ -124,7 +127,7 @@ void UnityPause( bool pause );
     
     // unpause Unity (should this always be true?) 
     if (self.pauseOnShowUI) {
-        [self pauseUnity:YES];
+        [self pauseUnity:NO];
     }
     
 	_navigationController = nil;
@@ -137,13 +140,23 @@ void UnityPause( bool pause );
     [self.addedSubviews removeAllObjects];
 }
 
+
+
 #pragma mark - Unity Control
 
-- (void)pauseUnity:(BOOL)shouldPause {
-    #ifdef UNITY_PRE_IOS6_SDK
-        UnityPause(pause);
-    #endif
+-(void)sendMessageToGameObject:(NSString*)gameObject withMethod:(NSString*)method andMessage:(NSString*)message {
+    NSLog(@"Sending GameObject %@ message: %@(%@)", gameObject, method, message);
+    UnitySendMessage([gameObject UTF8String], [method UTF8String], [message UTF8String]);
 }
 
+-(void)pauseUnity:(BOOL)shouldPause {
+    UnityPause(shouldPause);
+}
+
+
+
+// Stubs to allow compilation without the Unity libs
+void UnitySendMessage(const char * go, const char * method, const char * message) {}
+void UnityPause(bool pause) {}
 
 @end
