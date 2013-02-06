@@ -30,6 +30,14 @@ void _hideUI() {
 }
 
 
+void _sendMessageToListener( const char *listener, const char *method, const char *message) {
+    NSString *obj = [NSString stringWithUTF8String:listener];
+    NSString *mthd = [NSString stringWithUTF8String:method];
+    NSString *msg = [NSString stringWithUTF8String:message];
+    
+    [[NativeUIManager sharedManager] sendMessageToListener:obj withMethod:mthd andMessage:msg];
+}
+
 void _setPauseUnity(bool pause) {
     [NativeUIManager sharedManager].pauseOnShowUI = pause;
 }

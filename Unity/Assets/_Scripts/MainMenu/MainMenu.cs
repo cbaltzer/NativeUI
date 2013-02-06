@@ -8,12 +8,12 @@ public class MainMenu : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("NotPaused: " + Time.time);
+		//Debug.Log ("NotPaused: " + Time.time);
 	}
 	
 	
@@ -51,6 +51,13 @@ public class MainMenu : MonoBehaviour {
 		}
 		
 		
+		if(GUI.Button(new Rect( 300, 450, 200, 100), "NoPauseSendMessage")) {
+			NativeUI.pause = false;
+			NativeUI.showStoryboard(storyboardName);
+			Invoke("PassMessageToNative", 3f);
+		}
+		
+		
 		if (GUI.Button(new Rect( 600, 50, 50, 50), "x")) {
 			NativeUI.hideUI();
 		}
@@ -61,5 +68,8 @@ public class MainMenu : MonoBehaviour {
 		Application.LoadLevelAdditive(level);
 	}
 	
+	public void PassMessageToNative() {
+		NativeUI.sendMessageToListener("NUIViewController", "logMessage:", "Test message!");
+	}
 	
 }

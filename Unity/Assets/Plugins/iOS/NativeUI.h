@@ -9,4 +9,6 @@ void _showViewControllerFromXibWithFrame( const char *xib, float x, float y, flo
 
 void _hideUI();
 
+void _sendMessageToListener( const char *listener, const char *method, const char *message);
+
 void _setPauseUnity(bool pause);

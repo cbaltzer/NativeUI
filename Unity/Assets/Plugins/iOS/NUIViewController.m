@@ -19,6 +19,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [[NativeUIManager sharedManager] addListener:self];
+    
+}
+
+-(void)logMessage:(NSString*)message {
+    NSLog(@"Received message: %@", message);
 }
 
 - (void)didReceiveMemoryWarning

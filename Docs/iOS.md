@@ -1,20 +1,5 @@
-NativeUI
-========
-
-NativeUI is a Unity plugin for launching native views on top of the Unity Player. 
-Currently only iOS is supported, but an Android equivalent will be added.
-
-Special thanks to [Prime31](http://www.prime31.com) for the inspiration for this project. It is 
-based on their original 
-[NativeBinding](https://github.com/prime31/P31UnityAddOns/tree/faca2ae8a7f38374b8a93b8e7d828fcf979b9bda) 
-code, but mostly re-written and updated for using storyboards.
-
-This project contains sample projects for both a native Xcode app, and a Unity project 
-which will embed the native app. There is also a Unity package containing the plugin assets.
-
-
-Setup
------
+iOS Setup
+=========
 
 The easiest way to work right now is to import the Unity package containing the plugin files.
 When you create you Xcode project, make sure you include the plugin Objective-C files into it. Then 
@@ -39,15 +24,32 @@ select the option to copy the file. If you rebuild to the same directory, the st
 need the initial reference. 
 
 
+Workflow
+========
+
 
 Documentation
 =============
 
-### [iOS](Docs/iOS.md)
-
-
 NativeUIManager.mm
 ------------------
+
+### -addListener:(NSObject*)
+
+Adds a listener, to receive messages from Unity.
+
+
+### -removeListener:(NSObject*)
+
+Removes the listener from the list.
+
+
+### -sendMessageToListener:(NSString*) withMethod:(NSString*) andMessage:(NSString*)
+
+Performs the selector defined by `method` with the `message` parameter. Messages are passed through the 
+list of listeners, and will be executed on any and all registered listeners of the specified type, which 
+can perform the selector. 
+
 
 ### -sendMessageToGameObject:(NSString*) withMethod:(NSString*) andMessage:(NSString*)
 
@@ -111,7 +113,6 @@ libobjc.A.dylib`_cache_getImp
 -----------------------------
 
 If you get EXC_BAD_ACCESS in this, it is most likely because you are trying to load a Storyboard which does not exist.
-
 
 
 

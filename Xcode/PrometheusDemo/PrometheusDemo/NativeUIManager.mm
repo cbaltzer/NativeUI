@@ -24,6 +24,7 @@ extern void UnitySendMessage(const char *, const char *, const char *);
         self.pauseOnShowUI = YES;
 		self.viewWasAnimated = NO;
         self.addedSubviews = [NSMutableArray arrayWithCapacity:2]; //initially 2
+        self.listeners = [NSMutableArray array];
 	}
 	return self;
 }
@@ -142,12 +143,35 @@ extern void UnitySendMessage(const char *, const char *, const char *);
 
 
 
-#pragma mark - Unity Control
+#pragma mark - Message passing
+
+-(void)addListener:(NSObject*)listener {
+    [self.listeners addObject:listener];
+}
+
+-(void)removeListener:(NSObject*)listener {
+    [self.listeners removeObject:listener];
+}
+
+-(void)sendMessageToListener:(NSString*)listener withMethod:(NSString*)method andMessage:(NSString*)message {
+    NSLog(@"Receiving message, passing to listeners");
+    for (NSObject* object in self.listeners) {
+        if ([object isKindOfClass:NSClassFromString(listener)]) {
+            if ([object respondsToSelector:NSSelectorFromString(method)]) {
+                NSLog(@"Performing selector(%@:%@) on %@", method, message, listener);
+                [object performSelector:NSSelectorFromString(method) withObject:message];
+            }
+        }
+    }
+}
 
 -(void)sendMessageToGameObject:(NSString*)gameObject withMethod:(NSString*)method andMessage:(NSString*)message {
     NSLog(@"Sending GameObject %@ message: %@(%@)", gameObject, method, message);
     UnitySendMessage([gameObject UTF8String], [method UTF8String], [message UTF8String]);
 }
+
+
+#pragma mark - Unity Control
 
 -(void)pauseUnity:(BOOL)shouldPause {
     UnityPause(shouldPause);
