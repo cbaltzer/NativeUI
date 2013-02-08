@@ -21,7 +21,7 @@ If you copy a .storyboard from Xcode to Unity using a build phase, it will copy 
 subfolders are not supported Unity build process. See below, after a new build the en.lproj folder gets remade with 
 a new storyboard. 
 
-![Replace the old storyboard](Screenshots/ios_unity_heirarchy)
+![Replace the old storyboard](Screenshots/ios_unity_heirarchy.png)
 
 
 You should probably have Symlink Unity Libraries unchecked. 
