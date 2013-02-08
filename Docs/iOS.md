@@ -4,15 +4,28 @@ iOS Setup
 The easiest way to work right now is to import the Unity package containing the plugin files.
 When you create you Xcode project, make sure you include the plugin Objective-C files into it. Then 
 create a build phase which copies all of the necessary files (view controllers, storyboards, etc) into
-your `Assets/Plugins/iOS` folder in Unity. Whenever you need to update your native UI, just build (not run)
-and it will copy the updates into Unity. Then build your Unity project normally.
+your `Assets/Plugins/iOS` folder in Unity. 
+
+![Add a build phase](Screenshots/ios_native_buildphase.png)
+
+
+Whenever you need to update your native UI, just build (not run) and it will copy the updates into 
+Unity. When you need to add more files to your native project (images, view controllers, etc) just add 
+them into the build phase you just created. 
+
+![Add files to the build phase](Screenshots/ios_native_addfiles.png)
+
+
+If you copy a .storyboard from Xcode to Unity using a build phase, it will copy it into a localization
+ folder (probably `en.lproj`). You will need to move the files up a level out of this folder, into `Plugins/iOS`, as 
+subfolders are not supported Unity build process. See below, after a new build the en.lproj folder gets remade with 
+a new storyboard. 
+
+![Replace the old storyboard](Screenshots/ios_unity_heirarchy)
+
 
 You should probably have Symlink Unity Libraries unchecked. 
 
-
-**Note:** If you copy a .storyboard from Xcode to Unity using a build phase, it will copy it into a localization
- folder (probably `en.lproj`). You will need to move the files up a level out of this folder, into `Plugins/iOS`, as 
-subfolders are not supported Unity build process. 
 
 ### Unity build process
 
@@ -24,8 +37,7 @@ select the option to copy the file. If you rebuild to the same directory, the st
 need the initial reference. 
 
 
-Workflow
-========
+***
 
 
 Documentation
@@ -98,6 +110,7 @@ same name as the XIB.
 Hides any native UI and resumes the Unity Player. If the view controller is animated in, it will be animated out appropriately. 
 
 
+***
 
 Common Errors
 =============
