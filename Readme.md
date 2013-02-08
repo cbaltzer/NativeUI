@@ -13,9 +13,21 @@ This project contains sample projects for both a native Xcode app, and a Unity p
 which will embed the native app. There is also a Unity package containing the plugin assets.
 
 
+### Warning
+
+If you clone this project, the Xcode demo has a build phase with an absolute path from my machine in it. 
+Please remember to change that before you try to build! 
+
+
 Documentation
-=============
+-------------
 
 ### [iOS](Docs/iOS.md)
 ### [Android](Docs/Android.md)
+
+
+Warranty
+--------
+
+There is none. Use at your own risk. 
 
