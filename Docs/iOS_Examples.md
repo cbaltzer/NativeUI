@@ -16,19 +16,36 @@ time you should have as little as possible in the initial Unity scene.
 
 ```csharp
 void Start() {
-  NativeUI.showStoryboard("MainStoryboard");
+    NativeUI.showStoryboard("MainStoryboard");
 }
 ```
 
+Once your native view is visible, you may want to do something in the background with Unity. There are 
+methods for passing messages back and forth between the two systems. Say one of your controls loads a new scene 
+in Unity. It's Action may look something like this:
 
-Of course, from your native view, you need some way to get back into Unity. This can be done through 
+```objc
+-(IBAction)hideView:(UIButton*)sender
+{
+    [[NativeUIManager sharedManager] pauseUnity:NO];
+    [[NativeUIManager sharedManager] sendMessageToGameObject:@"MainMenu"
+                                                  withMethod:@"LoadScene"
+                                                  andMessage:@"SomeNewScene"];
+}
+
+```
+
+This could unpause the Unity VM and load a new scene in the background. That new scene can hide the native view 
+once it has finished loading. 
+
+Of course, you may want to only hide the native view once the user is ready to. This can be done through 
 a button, a gesture, or whatever other method you need. 
 
 
 ```objc
 -(IBAction)hideView:(UIButton*)sender
 {
-      [[NativeUIManager sharedManager] hideUI];
+    [[NativeUIManager sharedManager] hideUI];
 }
 ```
 
