@@ -13,6 +13,7 @@ public enum NativeTransitionAnimation {
 public class NativeUI : MonoBehaviour {
 	
 	
+	// Doesn't get called unless attatched to a GameObject 
 	void Awake() {
 		gameObject.name = "NativeUI";
 	}
@@ -50,7 +51,7 @@ public class NativeUI : MonoBehaviour {
         if( Application.platform == RuntimePlatform.IPhonePlayer) {
 			_showStoryboard( storyboard, anim );
 		} else {
-			Debug.LogError("Cannot display Storyboard on this platform!");
+			Debug.LogWarning("Cannot display Storyboard on this platform!");
 		}	
     }
 	
@@ -73,7 +74,7 @@ public class NativeUI : MonoBehaviour {
         if(Application.platform == RuntimePlatform.IPhonePlayer) {
 			_showViewControllerFromXibWithAnimation( xib, anim );
 		} else {
-			Debug.LogError("Cannot display Storyboard on this platform!");
+			Debug.LogWarning("Cannot display Storyboard on this platform!");
 		}	
 	}
 	
@@ -93,7 +94,7 @@ public class NativeUI : MonoBehaviour {
 		if (Application.platform == RuntimePlatform.IPhonePlayer) {
 			_showViewControllerFromXibWithFrame( xib, frame.x, frame.y, frame.width, frame.height);
 		} else {
-			Debug.LogError("Cannot display Xib on this platform!");
+			Debug.LogWarning("Cannot display Xib on this platform!");
 		}
 	}
 	
@@ -104,7 +105,7 @@ public class NativeUI : MonoBehaviour {
 		if (Application.platform == RuntimePlatform.IPhonePlayer) {
 			_sendMessageToListener( listener, method, message );
 		} else {
-			Debug.LogError("Cannot send message: " + method + "(" + message + ") to listener " + listener);
+			Debug.LogWarning("Cannot send message: " + method + "(" + message + ") to listener " + listener);
 		}
 		
 	}
