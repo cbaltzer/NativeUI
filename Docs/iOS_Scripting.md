@@ -70,4 +70,7 @@ same name as the XIB.
 >Hides any native UI and resumes the Unity Player. If the view controller is animated in, it will be animated out appropriately. 
 
 
+### sendMessageToListener( string listener, string method, string message )
+
+>Passes a message to an Objective-C object which has registered as a listener with the NativeUIManager.
 
