@@ -1,8 +1,10 @@
 NativeUI
 ========
 
+***
+
 NativeUI is a Unity plugin for launching native views on top of the Unity Player. 
-Currently only iOS is supported, but an Android equivalent will be added.
+Currently only iOS is supported, but an Android equivalent will be added, eventually.
 
 Special thanks to [Prime31](http://www.prime31.com) for the inspiration for this project. It is 
 based on their original 
@@ -22,11 +24,10 @@ which will embed the native app. There is also a Unity package containing the pl
 Documentation
 -------------
 
-### [iOS](Docs/iOS.md)
-- [Workflow](Docs/iOS.md#ios-setup)
-- [Script Docs](Docs/iOS.md#documentation)
-
-### Android
+### iOS
+- [Setup and workflow](Docs/iOS_Setup.md)
+- [Examples](Docs/iOS_Examples.md)
+- [Script Docs](Docs/iOS_Scripting.md)
 
 
 Warranty
