@@ -39,6 +39,22 @@ select the option to copy the file. If you rebuild to the same directory, the st
 need the initial reference. 
 
 
+XUPorter
+--------
+
+[XUPorter](https://github.com/cbaltzer/XUPorter) is a Unity plugin for modifying the Xcode project that Unity 
+produces. It has subfolder support, which can help keep your project organized. It is highly recommended, and 
+the NativeUI package has been re-organized to use it. 
+
+To install it, either copy the files into your project, or add it as a git submodule. 
+
+```
+git submodule add git@github.com:cbaltzer/XUPorter.git Assets/Editor/XUPorter
+git submodule init
+git submodule update
+```
+
+
 Common Errors
 =============
 

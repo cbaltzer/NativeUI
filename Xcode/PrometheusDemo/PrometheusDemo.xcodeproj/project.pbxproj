@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2D05C8A316B1803F00DAB3BB /* uncertain.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D05C8A216B1803F00DAB3BB /* uncertain.png */; };
-		2D05C8A416B1808F00DAB3BB /* uncertain.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D05C8A216B1803F00DAB3BB /* uncertain.png */; };
 		2D279F2D1672FBBC000D84E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D279F2C1672FBBC000D84E1 /* UIKit.framework */; };
 		2D279F2F1672FBBC000D84E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D279F2E1672FBBC000D84E1 /* Foundation.framework */; };
 		2D279F311672FBBC000D84E1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D279F301672FBBC000D84E1 /* CoreGraphics.framework */; };
@@ -24,15 +23,16 @@
 		2D279F5B1672FCF8000D84E1 /* NativeUI.m in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D279F521672FC8A000D84E1 /* NativeUI.m */; };
 		2D279F5C1672FCFA000D84E1 /* NativeUIManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D279F531672FC8A000D84E1 /* NativeUIManager.h */; };
 		2D279F5D1672FCFC000D84E1 /* NativeUIManager.mm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D279F541672FC8A000D84E1 /* NativeUIManager.mm */; };
-		2D279F601672FD0A000D84E1 /* MainStoryboard.storyboard in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D279F441672FBBC000D84E1 /* MainStoryboard.storyboard */; };
-		2D2BA45516B1778400AF90A9 /* NUIViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D279F471672FBBC000D84E1 /* NUIViewController.h */; };
-		2D2BA45616B1778400AF90A9 /* NUIViewController.m in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D279F481672FBBC000D84E1 /* NUIViewController.m */; };
+		2D54125A16DA93A60085F734 /* NUIPopoverViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DC66F0B16BD9D3000A93D5D /* NUIPopoverViewController.h */; };
+		2D54125B16DA93A60085F734 /* NUIPopoverViewController.m in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DC66F0C16BD9D3000A93D5D /* NUIPopoverViewController.m */; };
+		2D54125C16DA93A60085F734 /* NUIPopoverViewController.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DC66F0D16BD9D3000A93D5D /* NUIPopoverViewController.xib */; };
+		2D54125D16DA93B40085F734 /* MainStoryboard.storyboard in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D279F441672FBBC000D84E1 /* MainStoryboard.storyboard */; };
+		2D54125E16DA93B90085F734 /* NUIViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D279F471672FBBC000D84E1 /* NUIViewController.h */; };
+		2D54125F16DA93C10085F734 /* NUIViewController.m in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D279F481672FBBC000D84E1 /* NUIViewController.m */; };
+		2D54126016DA93C80085F734 /* uncertain.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D05C8A216B1803F00DAB3BB /* uncertain.png */; };
 		2DC66F0816BCBB7300A93D5D /* NativeUIManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D279F541672FC8A000D84E1 /* NativeUIManager.mm */; };
 		2DC66F0E16BD9D3000A93D5D /* NUIPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC66F0C16BD9D3000A93D5D /* NUIPopoverViewController.m */; };
 		2DC66F0F16BD9D3000A93D5D /* NUIPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC66F0D16BD9D3000A93D5D /* NUIPopoverViewController.xib */; };
-		2DC66F1016BDA7B400A93D5D /* NUIPopoverViewController.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DC66F0D16BD9D3000A93D5D /* NUIPopoverViewController.xib */; };
-		2DC66F1116BDA7B700A93D5D /* NUIPopoverViewController.m in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DC66F0C16BD9D3000A93D5D /* NUIPopoverViewController.m */; };
-		2DC66F1216BDA7BA00A93D5D /* NUIPopoverViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DC66F0B16BD9D3000A93D5D /* NUIPopoverViewController.h */; };
 		2DC66F1316BDAD8400A93D5D /* NativeUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D279F521672FC8A000D84E1 /* NativeUI.m */; };
 /* End PBXBuildFile section */
 
@@ -40,20 +40,29 @@
 		2D279F551672FCD7000D84E1 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /Volumes/Research/Code/NativeUI/Unity/Assets/Plugins/iOS;
+			dstPath = /Volumes/Research/Code/NativeUI/Unity/Assets/Plugins/NativeUI/iOS/;
 			dstSubfolderSpec = 0;
 			files = (
 				2D279F5B1672FCF8000D84E1 /* NativeUI.m in CopyFiles */,
-				2D05C8A416B1808F00DAB3BB /* uncertain.png in CopyFiles */,
-				2D2BA45516B1778400AF90A9 /* NUIViewController.h in CopyFiles */,
-				2D2BA45616B1778400AF90A9 /* NUIViewController.m in CopyFiles */,
 				2D279F5A1672FCF6000D84E1 /* NativeUI.h in CopyFiles */,
-				2DC66F1216BDA7BA00A93D5D /* NUIPopoverViewController.h in CopyFiles */,
-				2DC66F1116BDA7B700A93D5D /* NUIPopoverViewController.m in CopyFiles */,
-				2DC66F1016BDA7B400A93D5D /* NUIPopoverViewController.xib in CopyFiles */,
-				2D279F601672FD0A000D84E1 /* MainStoryboard.storyboard in CopyFiles */,
 				2D279F5D1672FCFC000D84E1 /* NativeUIManager.mm in CopyFiles */,
 				2D279F5C1672FCFA000D84E1 /* NativeUIManager.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D54125916DA93770085F734 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "/Volumes/Research/Code/NativeUI/Unity/Assets/Plugins/NativeUI/iOS-Assets/";
+			dstSubfolderSpec = 0;
+			files = (
+				2D54125D16DA93B40085F734 /* MainStoryboard.storyboard in CopyFiles */,
+				2D54126016DA93C80085F734 /* uncertain.png in CopyFiles */,
+				2D54125E16DA93B90085F734 /* NUIViewController.h in CopyFiles */,
+				2D54125F16DA93C10085F734 /* NUIViewController.m in CopyFiles */,
+				2D54125A16DA93A60085F734 /* NUIPopoverViewController.h in CopyFiles */,
+				2D54125B16DA93A60085F734 /* NUIPopoverViewController.m in CopyFiles */,
+				2D54125C16DA93A60085F734 /* NUIPopoverViewController.xib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +190,7 @@
 				2D279F251672FBBC000D84E1 /* Frameworks */,
 				2D279F261672FBBC000D84E1 /* Resources */,
 				2D279F551672FCD7000D84E1 /* CopyFiles */,
+				2D54125916DA93770085F734 /* CopyFiles */,
 			);
 			buildRules = (
 			);

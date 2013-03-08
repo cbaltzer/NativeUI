@@ -1,0 +1,11 @@
+{
+    "group": "NativeUI",
+    "libs": [],
+    "frameworks": [],
+    "headerpaths": [],
+    "files":   [],
+    "folders": ["../iOS",
+    			"../iOS-Assets"
+    			],  
+    "excludes": ["^.*.cs$", "^.*.meta$", "^.*.mdown^", "^.*.pdf$"]
+}

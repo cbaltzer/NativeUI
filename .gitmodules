@@ -1,0 +1,3 @@
+[submodule "Unity/Assets/Editor/XUPorter"]
+	path = Unity/Assets/Editor/XUPorter
+	url = git@github.com:cbaltzer/XUPorter.git
