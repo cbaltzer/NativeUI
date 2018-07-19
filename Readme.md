@@ -1,7 +1,14 @@
-NativeUI
-========
+WARNING
+=======
+
+I have not done Unity development in many years, and have no intention of updating or maintaining this package and am archiving the repo. Feel free to fork away.
+
 
 ***
+
+
+NativeUI
+========
 
 NativeUI is a Unity plugin for launching native views on top of the Unity Player. 
 Currently only iOS is supported, but an Android equivalent will be added, eventually.
